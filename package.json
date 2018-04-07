@@ -1,0 +1,97 @@
+{
+	"name": "ansi-to-svg",
+	"main": "ansi-to-svg",
+	"version": "1.0.0",
+	"description": "😹  export ANSI color strings to HTML, Image w/ iTerm2 color support",
+	"license": "MIT",
+	"repository": "F1LT3R/ansi-to",
+	"author": {
+		"name": "F1LT3R",
+		"email": "al@pwn.io",
+		"url": "f1lt3r.io"
+	},
+	"scripts": {
+		"test": "xo && yarn run cover",
+		"unit": "ava",
+		"watch": "ava --watch",
+		"cover": "nyc --reporter=lcov --reporter=html --reporter=text ava *.test.js",
+		"coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls -v",
+		"precommit": "yarn test"
+	},
+	"files": [
+		"index.js"
+	],
+	"dependencies": {
+		"@f1lt3r/ansi-parse": "^1.1.0",
+		"align-text": "^1.0.2",
+		"ansi-escapes": "^3.1.0",
+		"ansi-regex": "^3.0.0",
+		"ansi-to": "^1.3.0",
+		"array-uniq": "^1.0.3",
+		"blee": "^1.0.1",
+		"canvas": "^2.0.0-alpha.12",
+		"chalk": "^2.3.2",
+		"deepmerge": "^2.1.0",
+		"he": "^1.1.1",
+		"iterm2-image": "^1.0.1",
+		"itermcolors-to-hex": "^1.0.1",
+		"strip-ansi": "^4.0.0",
+		"strip-indent": "^2.0.0",
+		"super-split": "^1.1.0",
+		"term-img": "^2.1.0"
+	},
+	"devDependencies": {
+		"@sindresorhus/is": "^0.7.0",
+		"ava": "^0.25.0",
+		"coveralls": "^3.0.0",
+		"git-hooks": "^1.1.10",
+		"git-pre-commit": "^2.1.3",
+		"html-colors": "^0.0.4",
+		"nyc": "^11.6.0",
+		"open": "^0.0.5",
+		"xo": "^0.20.3"
+	},
+	"keywords": [
+		"ansi-to-html",
+		"ansi-to-image",
+		"ansi-to-svg",
+		"ansi-to-dataurl",
+		"ansi",
+		"escape",
+		"convert",
+		"console",
+		"color",
+		"chalk",
+		"terminal",
+		"html",
+		"image",
+		"jpg",
+		"png",
+		"svg",
+		"data url",
+		"log"
+	],
+	"nyc": {
+		"reporter": [
+			"lcov",
+			"text"
+		]
+	},
+	"xo": {
+		"esnext": true,
+		"semicolon": false,
+		"globals": [
+			"__dirname"
+		],
+		"rules": {
+			"no-console": 1,
+			"space-before-function-paren": 0
+		},
+		"ignores": [
+			"examples/**/*"
+		]
+	},
+	"ava": {
+		"failFast": true
+	}
+}
