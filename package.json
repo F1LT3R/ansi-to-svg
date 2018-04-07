@@ -27,6 +27,7 @@
 	},
 	"devDependencies": {
 		"ava": "^0.25.0",
+		"chalk": "^2.3.2",
 		"coveralls": "^3.0.0",
 		"git-hooks": "^1.1.10",
 		"git-pre-commit": "^2.1.3",
