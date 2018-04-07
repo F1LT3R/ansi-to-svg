@@ -1,7 +1,7 @@
 {
 	"name": "ansi-to-svg",
 	"main": "ansi-to-svg",
-	"version": "1.1.1",
+	"version": "1.1.2",
 	"description": "😹  export ANSI color strings to HTML, Image w/ iTerm2 color support",
 	"license": "MIT",
 	"repository": "F1LT3R/ansi-to",
@@ -20,7 +20,7 @@
 	},
 	"files": [
 		"index.js",
-		"examples/"
+		"examples/hello-world.svg"
 	],
 	"dependencies": {
 		"ansi-to": "^1.3.0",
