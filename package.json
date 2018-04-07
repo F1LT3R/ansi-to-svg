@@ -1,10 +1,10 @@
 {
 	"name": "ansi-to-svg",
 	"main": "ansi-to-svg",
-	"version": "1.1.3",
+	"version": "1.1.4",
 	"description": "😹  export ANSI color strings to HTML, Image w/ iTerm2 color support",
 	"license": "MIT",
-	"repository": "F1LT3R/ansi-to",
+	"repository": "F1LT3R/ansi-to-svg",
 	"author": {
 		"name": "F1LT3R",
 		"email": "al@pwn.io",
@@ -18,6 +18,9 @@
 		"coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls -v",
 		"precommit": "yarn test"
 	},
+	"files": [
+		"index.js"
+	],
 	"dependencies": {
 		"ansi-to": "^1.3.0",
 		"he": "^1.1.1"
