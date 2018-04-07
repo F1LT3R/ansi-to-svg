@@ -144,3 +144,4 @@ const result = ansiToSVG(String(ansiText), {colors: 'base16-tomorrow-256.itermco
 ```
 
 [![examples/light-iterm2-color-scheme.svg](examples/light-iterm2-color-scheme.svg)](examples/light-iterm2-color-scheme.svg)
+
