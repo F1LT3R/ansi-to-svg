@@ -9,7 +9,7 @@
 
 ANSI-to-SVG provides a Markdown friendly way to include Node.js CLI output in your software documentation; like this SVG here:
 
-[![Hello, World!](examples/hello-world.svg)](examples/hello-world.svg)
+<img src="examples/hello-world.svg">
 
 ANSI-to-SVG sits on top of tha base-package [ANSI-to](https://github.com/F1LT3R/ansi-to) and is part of a collection of tools used for ZDD development.
 
