@@ -37,7 +37,7 @@ Saving this result to an `.SVG` file and opening it in your browser would reveal
 
 Logging the result to console would show:
 
-```svg
+```xml
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0, 0, 126.02, 40.45" font-family="SauceCodePro Nerd Font, Source Code Pro, Courier" font-size="14"><g fill="#D3D3D3"><rect x="0" y="0" width="126.02" height="40.<svg xmlns="http://www.w3.org/2000/svg" viewBox="0, 0, 126.02, 40.45" font-family="SauceCodePro Nerd Font, Source Code Pro, Courier" font-size="14">
     <g fill="#D3D3D3">
         <rect x="0" y="0" width="126.02" height="40.45" fill="#000000" />
@@ -50,7 +50,6 @@ Logging the result to console would show:
     </g>
 </svg>
 ```
-
 
 ## iTerm2 Color Support
 
