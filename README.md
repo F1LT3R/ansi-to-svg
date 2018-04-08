@@ -9,7 +9,7 @@
 
 ANSI-to-SVG provides a Markdown friendly way to include Node.js CLI output in your software documentation; like this SVG here:
 
-<img src="examples/hello-world.svg">
+[![hello-world.svg](https://f1lt3r.github.io/ansi-to-svg/examples/hello-world.svg)](examples/hello-world.svg)
 
 ANSI-to-SVG sits on top of tha base-package [ANSI-to](https://github.com/F1LT3R/ansi-to) and is part of a collection of tools used for ZDD development.
 
@@ -33,7 +33,7 @@ const result = ansiToSVG(ansiText)
 
 Saving this result to an `.SVG` file and opening it in your browser would reveal:
 
-[![examples/basic-example.svg](examples/basic-example.svg)](examples/basic-example.svg)
+[![basic-example.svg](https://f1lt3r.github.io/ansi-to-svg/examples/basic-example.svg)](examples/basic-example.svg)
 
 Logging the result to console would show:
 
@@ -63,7 +63,7 @@ const colorFile = 'base16-flat-dark-f1lt3r-256.itermcolors'
 ansiToSVG(ansiText, {color: colorFile})
 ```
 
-[![examples/iterm2colors-file.svg](examples/iterm2colors-file.svg)](examples/iterm2colors-file.svg)
+[![iterm2colors-file.svg](https://f1lt3r.github.io/ansi-to-svg/examples/iterm2colors-file.svg)](examples/iterm2colors-file.svg)
 
 ## Emoji Support
 
@@ -91,7 +91,7 @@ test('emojis', t => {
     })
 ```
 
-[![examples/emojis.svg](examples/emojis.svg)](examples/emojis.svg)
+[![emojis.svg](https://f1lt3r.github.io/ansi-to-svg/examples/emojis.svg)](examples/emojis.svg)
 
 ## Powerline Font Compatability
 
@@ -108,11 +108,11 @@ ansiToSVG(ansiText, {
 
 Note: you will need `SauceCodePro Nerd font` for the following example to render correctly. You can find Nerd Fonts here: [https://nerdfonts.com/](https://nerdfonts.com/)
 
-[![examples/powerline-font.svg](examples/powerline-font.svg)](examples/powerline-font.svg)
+[![powerline-font.svg](https://f1lt3r.github.io/ansi-to-svg/examples/powerline-font.svg)](examples/powerline-font.svg)
 
 ## All Styles
 
-If we dump some ANSI to a file: `all-supported-styles.ansi`
+If we dump some ANSI to a file: [fixture.chalk-styles.ansi](fixtures/fixture.chalk-styles.ansi)
 
 ```plaintext
 [1mbold            [22m [2mdim             [22m [3mitalic          [23m [4munderline       [24m [7minverse         [27m [9mstrikethrough   [29m 
@@ -131,7 +131,7 @@ ansiToSVG(String(ansiText), {colors: 'base16-flat-dark-f1lt3r-256.itermcolors'})
 
 Resulting in the following output:
 
-[![examples/chalk-base-styles.svg](examples/chalk-base-styles.svg)](examples/chalk-base-styles.svg)
+[![chalk-base-styles.svg](https://f1lt3r.github.io/ansi-to-svg/examples/chalk-base-styles.svg)](examples/chalk-base-styles.svg)
 
 Note: this example uses [Chalk](https://github.com/chalk/chalk) as a base to write the ANSI Escape sequences.
 
@@ -141,5 +141,5 @@ Note: this example uses [Chalk](https://github.com/chalk/chalk) as a base to wri
 const result = ansiToSVG(String(ansiText), {colors: 'base16-tomorrow-256.itermcolors'})
 ```
 
-[![examples/light-iterm2-color-scheme.svg](examples/light-iterm2-color-scheme.svg)](examples/light-iterm2-color-scheme.svg)
+[![light-iterm2-color-scheme.svg](https://f1lt3r.github.io/ansi-to-svg/examples/light-iterm2-color-scheme.svg)](examples/light-iterm2-color-scheme.svg)
 
