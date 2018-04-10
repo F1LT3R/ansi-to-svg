@@ -102,7 +102,7 @@ const handler = (ansi, opts) => {
 	const height = opts.paddingTop + textAreaHeight + opts.paddingBottom + 1
 
 	const offsetTop = opts.paddingTop + font.lineHeight - font.emHeightDescent
-	const offsetLeft = opts.paddingTop
+	const offsetLeft = opts.paddingLeft
 
 	content += decorators.rect({
 		x: 0,
@@ -163,8 +163,9 @@ const handler = (ansi, opts) => {
 			content += decorators.rect(rectStyles)
 		}
 
+		let foregroundColor
 		if (style.foregroundColor) {
-			const foregroundColor = opts.colors[style.foregroundColor]
+			foregroundColor = opts.colors[style.foregroundColor]
 			attrs.push(`fill="${foregroundColor}"`)
 		}
 
@@ -177,7 +178,7 @@ const handler = (ansi, opts) => {
 			const ys = y - -yOffset
 			const xw = x + w
 			const d = `M${x},${ys} L${xw},${ys} Z`
-			const color = fontStyle.foregroundColor || baseForegroundColor
+			const color = foregroundColor || baseForegroundColor
 			content += decorators.path({d, color})
 		}
 
@@ -186,7 +187,7 @@ const handler = (ansi, opts) => {
 			const ys = y - yOffset
 			const xw = x + w
 			const d = `M${x},${ys} L${xw},${ys} Z`
-			const color = fontStyle.foregroundColor || baseForegroundColor
+			const color = foregroundColor || baseForegroundColor
 			content += decorators.path({d, color})
 		}
 

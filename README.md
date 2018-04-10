@@ -161,3 +161,19 @@ const result = ansiToSVG(String(ansiText), {
 [![padding.svg](https://f1lt3r.github.io/ansi-to-svg/examples/padding.svg)](examples/padding.svg)
 
 
+## Combined Strikethrough and Underline
+
+```js
+const ansiText = chalk`{bgCyan.yellow.strikethrough.underline woo!}`
+const colorFile = './fixtures/base16-flat-dark-f1lt3r-256.itermcolors'
+
+const result = ansiToSVG(String(ansiText), {
+    colors: colorFile,
+    paddingTop: 1,
+    paddingLeft: 1,
+    paddingBottom: -2.5,
+    paddingRight: 1
+})
+```
+
+[![padding.svg](https://f1lt3r.github.io/ansi-to-svg/examples/colored-strikethrough-underline.svg)](examples/examples/colored-strikethrough-underline.svg)

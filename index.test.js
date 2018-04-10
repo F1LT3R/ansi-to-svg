@@ -121,3 +121,23 @@ test('Padding', t => {
 	// open(outputFile)
 })
 
+// Added this test to cover a bug in the wild
+test('Colored Strikethrough with Underline', t => {
+	const ansiText = chalk`{bgCyan.yellow.strikethrough.underline woo!}`
+	const colorFile = './fixtures/base16-flat-dark-f1lt3r-256.itermcolors'
+
+	const result = ansiToSVG(String(ansiText), {
+		colors: colorFile,
+		paddingTop: 1,
+		paddingLeft: 1,
+		paddingBottom: -2.5,
+		paddingRight: 1
+	})
+
+	t.is(result, '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0, 0, 35.61, 20.95" font-family="SauceCodePro Nerd Font, Source Code Pro, Courier" font-size="14"><g fill="#e0e0e0"><rect x="0" y="0" width="35.61" height="20.95" fill="#2c3e50"/><rect x="1" y="1" width="33.61" height="19" fill="#1abc9c" opacity="1"/><path d="M1,17.5146875 L34.60546875,17.5146875 Z" stroke="#e9bd0e"/><path d="M1,11.3546875 L34.60546875,11.3546875 Z" stroke="#e9bd0e"/><text x="1" y="15.55" fill="#e9bd0e">woo!</text></g></svg>')
+
+	const outputFile = './examples/colored-strikethrough-underline.svg'
+	fs.writeFileSync(outputFile, result)
+	// Open
+	// open(outputFile)
+})
