@@ -101,7 +101,8 @@ const handler = (ansi, opts) => {
 	const width = opts.paddingLeft + textAreaWidth + opts.paddingRight
 	const height = opts.paddingTop + textAreaHeight + opts.paddingBottom + 1
 
-	const offsetTop = font.lineHeight - font.emHeightDescent
+	const offsetTop = opts.paddingTop + font.lineHeight - font.emHeightDescent
+	const offsetLeft = opts.paddingTop
 
 	content += decorators.rect({
 		x: 0,
@@ -123,7 +124,7 @@ const handler = (ansi, opts) => {
 			return
 		}
 
-		const x = adjustXforWhitespace(value, position.x) * font.width
+		const x = offsetLeft + (adjustXforWhitespace(value, position.x) * font.width)
 		const y = offsetTop + (position.y + (font.lineHeight * position.y))
 		const w = font.width * value.length
 

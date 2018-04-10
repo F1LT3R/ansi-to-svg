@@ -38,7 +38,7 @@ Saving this result to an `.SVG` file and opening it in your browser would reveal
 Logging the result to console would show:
 
 ```xml
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0, 0, 126.02, 40.45" font-family="SauceCodePro Nerd Font, Source Code Pro, Courier" font-size="14"><g fill="#D3D3D3"><rect x="0" y="0" width="126.02" height="40.<svg xmlns="http://www.w3.org/2000/svg" viewBox="0, 0, 126.02, 40.45" font-family="SauceCodePro Nerd Font, Source Code Pro, Courier" font-size="14">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0, 0, 126.02, 40.45" font-family="SauceCodePro Nerd Font, Source Code Pro, Courier" font-size="14"><g fill="#D3D3D3"><rect x="0" y="0" width="126.02" height="40"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0, 0, 126.02, 40.45" font-family="SauceCodePro Nerd Font, Source Code Pro, Courier" font-size="14">
     <g fill="#D3D3D3">
         <rect x="0" y="0" width="126.02" height="40.45" fill="#000000" />
         <text x="0" y="14.55">Your </text>
@@ -141,4 +141,23 @@ const result = ansiToSVG(String(ansiText), {colors: 'base16-tomorrow-256.itermco
 ```
 
 [![light-iterm2-color-scheme.svg](https://f1lt3r.github.io/ansi-to-svg/examples/light-iterm2-color-scheme.svg)](examples/light-iterm2-color-scheme.svg)
+
+
+## Padding
+
+```js
+const ansiText = chalk`{red.bold padding} {green.italic woo!}`
+const colorFile = './fixtures/base16-flat-dark-f1lt3r-256.itermcolors'
+
+const result = ansiToSVG(String(ansiText), {
+    colors: colorFile,
+    paddingTop: 14,
+    paddingLeft: 14,
+    paddingRight: 14,
+    paddingBottom: 14
+})
+```
+
+[![padding.svg](https://f1lt3r.github.io/ansi-to-svg/examples/padding.svg)](examples/padding.svg)
+
 

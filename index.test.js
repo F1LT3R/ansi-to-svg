@@ -1,16 +1,10 @@
 import fs from 'fs'
 import test from 'ava'
 import chalk from 'chalk'
+// eslint-disable-next-line no-unused-vars
 import open from 'open'
 
 import ansiToSVG from '.'
-
-const openFiles = false
-const openFile = file => {
-	if (openFiles) {
-		open(file)
-	}
-}
 
 const fixtures = {
 	chalkBaseStylesANSI: String(fs.readFileSync('./fixtures/fixture.chalk-styles.ansi'))
@@ -23,7 +17,8 @@ test('Basic example', t => {
 
 	const outputFile = './examples/basic-example.svg'
 	fs.writeFileSync(outputFile, result)
-	openFile(outputFile)
+	// // Open
+	// open(outputFile)
 })
 
 test('iTerm2Colors colors file', t => {
@@ -34,7 +29,8 @@ test('iTerm2Colors colors file', t => {
 
 	const outputFile = './examples/iterm2colors-file.svg'
 	fs.writeFileSync(outputFile, result)
-	openFile(outputFile)
+	// // Open
+	// open(outputFile)})
 })
 
 test('emojis', t => {
@@ -60,7 +56,8 @@ test('emojis', t => {
 
 	const outputFile = './examples/emojis.svg'
 	fs.writeFileSync(outputFile, result)
-	openFile(outputFile)
+	// // Open
+	// open(outputFile)})
 })
 
 test('Chalk base styles', t => {
@@ -71,7 +68,8 @@ test('Chalk base styles', t => {
 
 	const outputFile = './examples/chalk-base-styles.svg'
 	fs.writeFileSync(outputFile, result)
-	openFile(outputFile)
+	// // Open
+	// open(outputFile)})
 })
 
 test('Powerline font compatibility', t => {
@@ -87,7 +85,8 @@ test('Powerline font compatibility', t => {
 
 	const outputFile = './examples/powerline-font.svg'
 	fs.writeFileSync(outputFile, result)
-	openFile(outputFile)
+	// // Open
+	// open(outputFile)})
 })
 
 test('Light iTerm2 color scheme', t => {
@@ -98,5 +97,27 @@ test('Light iTerm2 color scheme', t => {
 
 	const outputFile = './examples/light-iterm2-color-scheme.svg'
 	fs.writeFileSync(outputFile, result)
-	openFile(outputFile)
+	// // Open
+	// open(outputFile)})
 })
+
+test('Padding', t => {
+	const ansiText = chalk`{red.bold padding} {green.italic woo!}`
+	const colorFile = './fixtures/base16-flat-dark-f1lt3r-256.itermcolors'
+
+	const result = ansiToSVG(String(ansiText), {
+		colors: colorFile,
+		paddingTop: 14,
+		paddingLeft: 14,
+		paddingRight: 14,
+		paddingBottom: 14
+	})
+
+	t.is(result, '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0, 0, 128.82, 50.45" font-family="SauceCodePro Nerd Font, Source Code Pro, Courier" font-size="14"><g fill="#e0e0e0"><rect x="0" y="0" width="128.82" height="50.45" fill="#2c3e50"/><text x="14" y="28.55" font-weight="bold" fill="#ce4435">padding</text><text x="81.21" y="28.55" font-style="italic" fill="#2ecc71">woo!</text></g></svg>')
+
+	const outputFile = './examples/padding.svg'
+	fs.writeFileSync(outputFile, result)
+	// Open
+	// open(outputFile)
+})
+
