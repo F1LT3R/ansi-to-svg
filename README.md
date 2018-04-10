@@ -176,4 +176,4 @@ const result = ansiToSVG(String(ansiText), {
 })
 ```
 
-[![padding.svg](https://f1lt3r.github.io/ansi-to-svg/examples/colored-strikethrough-underline.svg)](examples/examples/colored-strikethrough-underline.svg)
+[![colored-strikethrough-underline](https://f1lt3r.github.io/ansi-to-svg/examples/colored-strikethrough-underline.svg)](examples/examples/colored-strikethrough-underline.svg)
