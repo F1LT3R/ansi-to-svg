@@ -13,6 +13,12 @@ ANSI-to-SVG provides a Markdown friendly way to include Node.js CLI output in yo
 
 ANSI-to-SVG sits on top of tha base-package [ANSI-to](https://github.com/F1LT3R/ansi-to) and is part of a collection of tools used for ZDD development.
 
+ANSI-to has the following plugins available:
+
+- [SVG](https://github.com/F1LT3R/ansi-to-svg.git) - Export ANSI to Scalable Vector Graphics
+- [PNG, JPG](https://github.com/F1LT3R/ansi-to-image) - Export ANSI to raster image (JPG, PNG)
+- [<strike>HTML</strike>](https://github.com/F1LT3R/ansi-to-html) (coming soon)
+
 The SVGs output have been tested with Chrome, Firefox and Sketch.
 
 ## Install
