@@ -21,6 +21,74 @@ The SVGs output have been tested with Chrome, Firefox and Sketch.
 $ yarn add ansi-to-svg
 ```
 
+## Usage
+
+```js
+const ansiToSVG = require('ansi-to-svg')
+
+// Returns an SVG string
+ansiToSVG(ansiText, {
+	// Defaults to  2x for Retina compatibility
+	scale: 2,
+
+	// Font settings
+	fontFace: 'Courier',
+	fontSize: 14,
+	lineHeight: 18,
+
+	// Padding
+	paddingTop: 0,
+	paddingLeft: 0,
+	paddingBottom: 0,
+	paddingRight: 0,
+
+	// Supply an iTerm2 Color file
+	colors: './base16-flat-dark-f1lt3r-256.itermcolors',
+
+	// Or override the default colors
+	// (all defaults shown here)
+	colors: {
+		black: '#000000',
+		red: '#B22222',
+		green: '#32CD32',
+		yellow: '#DAA520',
+		blue: '#4169E1',
+		magenta: '#9932CC',
+		cyan: '#008B8B',
+		white: '#D3D3D3',
+		gray: '#A9A9A9',
+		redBright: '#FF4500',
+		greenBright: '#ADFF2F',
+		yellowBright: '#FFFF00',
+		blueBright: '#87CEEB',
+		magentaBright: '#FF00FF',
+		cyanBright: '#00FFFF',
+		whiteBright: '#FFFFFF',
+		bgBlack: '#000000',
+		bgRed: '#B22222',
+		bgGreen: '#32CD32',
+		bgYellow: '#DAA520',
+		bgBlue: '#4169E1',
+		bgMagenta: '#9932CC',
+		bgCyan: '#008B8B',
+		bgWhite: '#D3D3D3',
+		bgGray: '#A9A9A9',
+		bgRedBright: '#FF0000',
+		bgGreenBright: '#ADFF2F',
+		bgYellowBright: '#FFFF00',
+		bgBlueBright: '#87CEEB',
+		bgMagentaBright: '#FF00FF',
+		bgCyanBright: '#00FFFF',
+		bgWhiteBright: '#FFFFFF',
+		backgroundColor: '#000000',
+		foregroundColor: '#D3D3D3'
+	}
+})
+```
+
+})
+```
+
 ## Basic Text
 
 ```js
@@ -39,15 +107,15 @@ Logging the result to console would show:
 
 ```xml
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0, 0, 126.02, 40.45" font-family="SauceCodePro Nerd Font, Source Code Pro, Courier" font-size="14"><g fill="#D3D3D3"><rect x="0" y="0" width="126.02" height="40"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0, 0, 126.02, 40.45" font-family="SauceCodePro Nerd Font, Source Code Pro, Courier" font-size="14">
-    <g fill="#D3D3D3">
-        <rect x="0" y="0" width="126.02" height="40.45" fill="#000000" />
-        <text x="0" y="14.55">Your </text>
-        <text x="42.01" y="14.55" fill="#B22222">$wish</text>
-        <text x="8.4" y="33.55"> is </text>
-        <rect x="33.61" y="19" width="16.8" height="19" fill="#DAA520" opacity="1" />
-        <text x="33.61" y="33.55" fill="#008B8B">my</text>
-        <text x="58.81" y="33.55"> command.</text>
-    </g>
+	<g fill="#D3D3D3">
+		<rect x="0" y="0" width="126.02" height="40.45" fill="#000000" />
+		<text x="0" y="14.55">Your </text>
+		<text x="42.01" y="14.55" fill="#B22222">$wish</text>
+		<text x="8.4" y="33.55"> is </text>
+		<rect x="33.61" y="19" width="16.8" height="19" fill="#DAA520" opacity="1" />
+		<text x="33.61" y="33.55" fill="#008B8B">my</text>
+		<text x="58.81" y="33.55"> command.</text>
+	</g>
 </svg>
 ```
 
@@ -67,27 +135,26 @@ ansiToSVG(ansiText, {color: colorFile})
 ## Emoji Support
 
 ```js
-test('emojis', t => {
-    const ansiText = chalk.bgRed('🌈') +
-        chalk.bgYellow('🦄') +
-        chalk.bgGreen('🐘') +
-        chalk.bgCyan('🍄') +
-        chalk.bgBlue('🎃') +
-        chalk.bgMagenta('🐦') +
-        chalk.bgRed('🖤') +
-        chalk.bgYellow('😳') +
-        chalk.bgGreen('😒') +
-        chalk.bgCyan('😮') +
-        chalk.bgBlue('😐') +
-        chalk.bgMagenta('😱') +
-        chalk.bgRed('😕') +
-        chalk.bgYellow('😕') +
-        chalk.bgGreen('😑') +
-        chalk.bgCyan('😘')
-    
-    ansiToSVG(ansiText, {
-        colors: 'base16-flat-dark-f1lt3r-256.itermcolors'
-    })
+const ansiText = chalk.bgRed('🌈') +
+	chalk.bgYellow('🦄') +
+	chalk.bgGreen('🐘') +
+	chalk.bgCyan('🍄') +
+	chalk.bgBlue('🎃') +
+	chalk.bgMagenta('🐦') +
+	chalk.bgRed('🖤') +
+	chalk.bgYellow('😳') +
+	chalk.bgGreen('😒') +
+	chalk.bgCyan('😮') +
+	chalk.bgBlue('😐') +
+	chalk.bgMagenta('😱') +
+	chalk.bgRed('😕') +
+	chalk.bgYellow('😕') +
+	chalk.bgGreen('😑') +
+	chalk.bgCyan('😘')
+
+ansiToSVG(ansiText, {
+	colors: 'base16-flat-dark-f1lt3r-256.itermcolors'
+})
 ```
 
 [![emojis.svg](https://f1lt3r.github.io/ansi-to-svg/examples/emojis.svg)](examples/emojis.svg)
@@ -96,12 +163,12 @@ test('emojis', t => {
 
 ```js
 const ansiText = chalk` {bgGreen.white Testing background colors } butting adjacent lines. \n` +
-    chalk` {red ✘ }{bgBlue.black  ~/repos/minkjs/ansi-to }{bgYellow.blue  }{bgYellow.black  svg-image-plugins ● }{yellow } ava powerline-fonts.test.js \n` +
-    chalk`  {green 1 passed}`
+	chalk` {red ✘ }{bgBlue.black  ~/repos/minkjs/ansi-to }{bgYellow.blue  }{bgYellow.black  svg-image-plugins ● }{yellow } ava powerline-fonts.test.js \n` +
+	chalk`  {green 1 passed}`
 
 ansiToSVG(ansiText, {
-    colors: 'base16-flat-dark-f1lt3r-256.itermcolors',
-    fontFamily: 'SauceCodePro Nerd Font'
+	colors: 'base16-flat-dark-f1lt3r-256.itermcolors',
+	fontFamily: 'SauceCodePro Nerd Font'
 })
 ```
 
@@ -150,11 +217,11 @@ const ansiText = chalk`{red.bold padding} {green.italic woo!}`
 const colorFile = './fixtures/base16-flat-dark-f1lt3r-256.itermcolors'
 
 const result = ansiToSVG(String(ansiText), {
-    colors: colorFile,
-    paddingTop: 14,
-    paddingLeft: 14,
-    paddingRight: 14,
-    paddingBottom: 14
+	colors: colorFile,
+	paddingTop: 14,
+	paddingLeft: 14,
+	paddingRight: 14,
+	paddingBottom: 14
 })
 ```
 
@@ -168,12 +235,12 @@ const ansiText = chalk`{bgCyan.yellow.strikethrough.underline woo!}`
 const colorFile = './fixtures/base16-flat-dark-f1lt3r-256.itermcolors'
 
 const result = ansiToSVG(String(ansiText), {
-    colors: colorFile,
-    paddingTop: 1,
-    paddingLeft: 1,
-    paddingBottom: -2.5,
-    paddingRight: 1
+	colors: colorFile,
+	paddingTop: 1,
+	paddingLeft: 1,
+	paddingBottom: -2.5,
+	paddingRight: 1
 })
 ```
 
-[![colored-strikethrough-underline](https://f1lt3r.github.io/ansi-to-svg/examples/colored-strikethrough-underline.svg)](examples/examples/colored-strikethrough-underline.svg)
+[![colored-strikethrough-underline](https://f1lt3r.github.io/ansi-to-svg/examples/colored-strikethrough-underline.svg)](examples/colored-strikethrough-underline.svg)
