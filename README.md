@@ -11,6 +11,14 @@ ANSI-to-SVG provides a Markdown friendly way to include Node.js CLI output in yo
 
 [![hello-world.svg](https://f1lt3r.github.io/ansi-to-svg/examples/hello-world.svg)](examples/hello-world.svg)
 
+## Support
+
+Support the development of ASI-to-SVG by [becoming a patreon](https://patreon.com/bePatron?u=9720216).
+
+<a href="https://patreon.com/bePatron?u=9720216"><img width="120" src="https://f1lt3r.io/content/images/2018/04/become_a_patron_button@2x.png"></a>
+
+## Features
+
 ANSI-to-SVG sits on top of tha base-package [ANSI-to](https://github.com/F1LT3R/ansi-to) and is part of a collection of tools used for ZDD development.
 
 ANSI-to has the following plugins available:
