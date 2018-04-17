@@ -13,7 +13,7 @@ ANSI-to-SVG provides a Markdown friendly way to include Node.js CLI output in yo
 
 ## Support
 
-Support the development of ASI-to-SVG by [becoming a patreon](https://patreon.com/bePatron?u=9720216).
+Support the development of ANSI-to-SVG by [becoming a patreon](https://patreon.com/bePatron?u=9720216).
 
 <a href="https://patreon.com/bePatron?u=9720216"><img width="120" src="https://f1lt3r.io/content/images/2018/04/become_a_patron_button@2x.png"></a>
 
