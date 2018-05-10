@@ -96,10 +96,10 @@ const handler = (ansi, opts) => {
 
 	const textArea = ansi.textArea
 	const textAreaWidth = textArea.columns * font.width
-	const textAreaHeight = (textArea.rows * font.lineHeight) + font.emHeightDescent
+	const textAreaHeight = (textArea.rows * (font.lineHeight + 1)) + font.emHeightDescent
 
 	const width = opts.paddingLeft + textAreaWidth + opts.paddingRight
-	const height = opts.paddingTop + textAreaHeight + opts.paddingBottom + 1
+	const height = opts.paddingTop + textAreaHeight + opts.paddingBottom
 
 	const offsetTop = opts.paddingTop + font.lineHeight - font.emHeightDescent
 	const offsetLeft = opts.paddingLeft
