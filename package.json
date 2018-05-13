@@ -1,7 +1,7 @@
 {
 	"name": "ansi-to-svg",
 	"main": "ansi-to-svg",
-	"version": "1.4.1",
+	"version": "1.4.2",
 	"description": "😹  convert ANSI Escaped CLI strings to SVGs",
 	"license": "MIT",
 	"repository": "F1LT3R/ansi-to-svg",
