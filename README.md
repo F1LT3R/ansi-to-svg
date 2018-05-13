@@ -7,6 +7,8 @@
 [![NPM Version](https://img.shields.io/npm/v/ansi-to-svg.svg)](https://www.npmjs.com/package/ansi-to-svg)
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
 
+[Changelog](Changelog.md)
+
 ANSI-to-SVG provides a Markdown friendly way to include Node.js CLI output in your software documentation; like this SVG here:
 
 [![hello-world.svg](https://f1lt3r.github.io/ansi-to-svg/examples/hello-world.svg)](examples/hello-world.svg)
