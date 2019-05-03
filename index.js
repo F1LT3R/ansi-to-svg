@@ -70,7 +70,7 @@ const decorators = {
 // https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/xml:space
 const adjustXforWhitespace = (text, x) => {
 	const leadingSpace = text.match(/^\s*/g)
-  	return x + leadingSpace[0].length
+	return x + leadingSpace[0].length
 }
 
 const handler = (ansi, opts) => {
