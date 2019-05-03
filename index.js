@@ -69,13 +69,8 @@ const decorators = {
 // Some SVG Implementations drop whitespaces
 // https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/xml:space
 const adjustXforWhitespace = (text, x) => {
-	const leadingSpace = text.match(/(^ )/g)
-
-	if (leadingSpace && leadingSpace.length > 0) {
-		return x + leadingSpace.length
-	}
-
-	return x
+	const leadingSpace = text.match(/^\s*/g)
+	return x + leadingSpace[0].length
 }
 
 const handler = (ansi, opts) => {
