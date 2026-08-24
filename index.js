@@ -1,3 +1,5 @@
+'use strict'
+
 const ansiTo = require('ansi-to')
 const he = require('he')
 
