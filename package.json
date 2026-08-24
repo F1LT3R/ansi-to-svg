@@ -1,6 +1,6 @@
 {
 	"name": "ansi-to-svg",
-	"main": "ansi-to-svg",
+	"main": "index.js",
 	"version": "1.4.3",
 	"description": "😹  convert ANSI Escaped CLI strings to SVGs",
 	"license": "MIT",
