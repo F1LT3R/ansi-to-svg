@@ -8,7 +8,7 @@
 	"author": {
 		"name": "F1LT3R",
 		"email": "al@pwn.io",
-		"url": "f1lt3r.io"
+		"url": "https://f1lt3r.io"
 	},
 	"scripts": {
 		"test": "xo && yarn run cover",
