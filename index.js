@@ -2,6 +2,7 @@
 
 const ansiTo = require('ansi-to')
 const he = require('he')
+const defaultContainer = require('./containers')
 
 // Round: Make number values smaller in output
 // Eg: 14.23734 becomes 14.24
@@ -47,23 +48,18 @@ const decorators = {
 		return `<path d="${d}" stroke="${color}"/>`
 	},
 
-	container: ({foregroundColor, content, width, height, font}) => {
-		const attrs = []
-		if (font) {
-			attrs.push(`font-family="${font.family}"`)
-			attrs.push(`font-size="${font.size}"`)
-		}
-		const attrStr = attrs.join(' ')
-
-		let space = ''
-		if (attrStr) {
-			space = ' '
-		}
-
+	container: ({
+		backgroundColor, attributes,
+		foregroundColor, content, width, height, container = defaultContainer,
+		containerOptions = {}
+	}) => {
 		height = round(height)
 		width = round(width)
 
-		const containerTemplate = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0, 0, ${width}, ${height}"${space}${attrStr}><g fill="${foregroundColor}">${content}</g></svg>`
+		const containerTemplate = container({
+			foregroundColor, content, width, height, backgroundColor, attributes,
+			...containerOptions
+		})
 		return containerTemplate
 	}
 }
@@ -100,14 +96,6 @@ const handler = (ansi, opts) => {
 
 	const offsetTop = opts.paddingTop + font.lineHeight - font.emHeightDescent
 	const offsetLeft = opts.paddingLeft
-
-	content += decorators.rect({
-		x: 0,
-		y: 0,
-		width,
-		height,
-		color: opts.colors.backgroundColor
-	})
 
 	ansi.chunks.forEach(chunk => {
 		const {
@@ -202,14 +190,26 @@ const handler = (ansi, opts) => {
 		})
 	})
 
+	let attributes = {}
+	if (font) {
+		attributes = {
+			'font-family': font.family,
+			'font-size': font.size
+		}
+	}
+
 	const baseStyles = {
+		container: opts.container,
+		containerOptions: opts.containerOptions,
 		foregroundColor: baseForegroundColor,
 		backgroundColor: opts.colors.backgroundColor,
 		content,
+		attributes,
 		width,
 		height,
 		font
 	}
+
 	return decorators.container(baseStyles)
 }
 

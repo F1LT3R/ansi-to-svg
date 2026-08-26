@@ -22,6 +22,7 @@
 		"index.js"
 	],
 	"dependencies": {
+		"@svag/window": "^1.0.0",
 		"ansi-to": "^1.3.0",
 		"he": "^1.1.1"
 	},

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0, 0, 362, 212" width="362px" height="212px">
+<g transform="translate(55, 25)" filter="url(#shadow)" fill="none"><defs>
+  <filter x="-22%" y="-25%" width="144%" height="205%" id="shadow">
+    <feOffset dx="0" dy="25" in="SourceAlpha" result="so"/>
+    <feGaussianBlur stdDeviation="27.5" in="so" result="sb"/>
+    <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="sb" result="sm"/>
+    <feMerge>
+      <feMergeNode in="sm"/>
+      <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+  </filter>
+</defs>
+<rect height="100" width="250" rx="6" stroke="#000000" stroke-opacity="0.2"/>
+<defs><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="toolbar">
+  <stop stop-color="#FFFFFF" offset="0%"/>
+  <stop stop-color="#F5F4F5" offset="5%"/>
+  <stop stop-color="#D3D3D3" offset="100%"/>
+</linearGradient></defs>
+<path d="M6,0 L244,0 C 247 0, 250 3, 250 6 L250,22 L0,22 L0,16 L0,6 C 0 3, 3 0, 6 0" fill="url(#toolbar)"/>
+<text x="125" y="16" font-family="HelveticaNeue, Helvetica Neue" font-size="13" letter-spacing="0.4" fill="#464646" text-anchor="middle">⚡️Terminal</text>
+<g transform="translate(9, 6)">
+  <g>
+    <circle stroke="#E33E32" stroke-width="1" cx="5" cy="5" r="5.5"/>
+    <circle fill="#FF5F52" cx="5" cy="5" r="5.25"/>
+  </g>
+  <g>
+    <circle stroke="#E2A100" stroke-width="1" cx="25" cy="5" r="5.5"/>
+    <circle fill="#FFBE05" cx="25" cy="5" r="5.25"/>
+  </g>
+  <g>
+    <circle stroke="#17B230" stroke-width="1" cx="45" cy="5" r="5.5"/>
+    <circle fill="#15CC35" cx="45" cy="5" r="5.25"/>
+  </g>
+</g>
+<path d="M250,22 L250,94 C 250 97, 247 100, 244 100 L6,100 C 3 100, 0 97, 0 94 L0,22 Z" fill="#000000"/>
+<line x1="0" y1="22.5" x2="250" y2="22.5" stroke="#7E7E7E" shape-rendering="crispEdges"/>
+<g transform="translate(5, 28)" fill="#D3D3D3" font-family="Courier" font-size="14"><text x="0" y="14.55" fill="#32CD32">&#x1F44B; Hello</text><text x="67.21" y="14.55">, </text><text x="84.01" y="14.55" fill="#87CEEB">World</text><text x="134.42" y="14.55"> &#x1F30F;</text><text x="151.22" y="14.55" fill="#FF4500">!</text><rect x="0" y="19" width="16.8" height="19" fill="#B22222" opacity="1"/><text x="0" y="33.55">&#x1F44B;</text><rect x="16.8" y="19" width="16.8" height="19" fill="#DAA520" opacity="1"/><text x="16.8" y="33.55">&#x1F984;</text><rect x="33.61" y="19" width="16.8" height="19" fill="#32CD32" opacity="1"/><text x="33.61" y="33.55">&#x1F418;</text><path d="M58.8095703125,29.3546875 L75.6123046875,29.3546875 Z" stroke="#D3D3D3"/><text x="58.81" y="33.55" font-style="italic">13</text><text x="75.61" y="33.55" font-weight="bold">3</text><path d="M84.013671875,35.5146875 L92.4150390625,35.5146875 Z" stroke="#D3D3D3"/><text x="84.01" y="33.55">7</text><rect x="100.82" y="19" width="16.8" height="19" fill="#008B8B" opacity="1"/><text x="100.82" y="33.55">&#x1F344;</text><rect x="117.62" y="19" width="16.8" height="19" fill="#4169E1" opacity="1"/><text x="117.62" y="33.55">&#x1F383;</text><rect x="134.42" y="19" width="16.8" height="19" fill="#9932CC" opacity="1"/><text x="134.42" y="33.55">&#x1F426;</text></g></g></svg>
