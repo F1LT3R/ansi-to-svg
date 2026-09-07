@@ -3,11 +3,10 @@ import test from 'ava'
 import chalk from 'chalk'
 // eslint-disable-next-line no-unused-vars
 import open from 'open'
-
-import ansiToSVG from '.'
+import ansiToSVG from './index.js'
 
 const fixtures = {
-	chalkBaseStylesANSI: String(fs.readFileSync('./fixtures/fixture.chalk-styles.ansi'))
+	chalkBaseStylesANSI: String(fs.readFileSync('./fixtures/fixture.chalk-styles.ansi')),
 }
 
 test('Basic example', t => {
@@ -34,22 +33,22 @@ test('iTerm2Colors colors file', t => {
 })
 
 test('emojis', t => {
-	const ansiText = chalk.bgRed('🌈') +
-		chalk.bgYellow('🦄') +
-		chalk.bgGreen('🐘') +
-		chalk.bgCyan('🍄') +
-		chalk.bgBlue('🎃') +
-		chalk.bgMagenta('🐦') +
-		chalk.bgRed('🖤') +
-		chalk.bgYellow('😳') +
-		chalk.bgGreen('😒') +
-		chalk.bgCyan('😮') +
-		chalk.bgBlue('😐') +
-		chalk.bgMagenta('😱') +
-		chalk.bgRed('😕') +
-		chalk.bgYellow('😕') +
-		chalk.bgGreen('😑') +
-		chalk.bgCyan('😘')
+	const ansiText = chalk.bgRed('🌈')
+		+ chalk.bgYellow('🦄')
+		+ chalk.bgGreen('🐘')
+		+ chalk.bgCyan('🍄')
+		+ chalk.bgBlue('🎃')
+		+ chalk.bgMagenta('🐦')
+		+ chalk.bgRed('🖤')
+		+ chalk.bgYellow('😳')
+		+ chalk.bgGreen('😒')
+		+ chalk.bgCyan('😮')
+		+ chalk.bgBlue('😐')
+		+ chalk.bgMagenta('😱')
+		+ chalk.bgRed('😕')
+		+ chalk.bgYellow('😕')
+		+ chalk.bgGreen('😑')
+		+ chalk.bgCyan('😘')
 	const colorFile = './fixtures/base16-flat-dark-f1lt3r-256.itermcolors'
 	const result = ansiToSVG(ansiText, {colors: colorFile})
 	t.is(result, '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0, 0, 268.84, 22.45" font-family="SauceCodePro Nerd Font, Source Code Pro, Courier" font-size="14"><g fill="#e0e0e0"><rect x="0" y="0" width="268.84" height="22.45" fill="#2c3e50"/><rect x="0" y="0" width="16.8" height="19" fill="#ce4435" opacity="1"/><text x="0" y="14.55">&#x1F308;</text><rect x="16.8" y="0" width="16.8" height="19" fill="#e9bd0e" opacity="1"/><text x="16.8" y="14.55">&#x1F984;</text><rect x="33.61" y="0" width="16.8" height="19" fill="#2ecc71" opacity="1"/><text x="33.61" y="14.55">&#x1F418;</text><rect x="50.41" y="0" width="16.8" height="19" fill="#1abc9c" opacity="1"/><text x="50.41" y="14.55">&#x1F344;</text><rect x="67.21" y="0" width="16.8" height="19" fill="#318fce" opacity="1"/><text x="67.21" y="14.55">&#x1F383;</text><rect x="84.01" y="0" width="16.8" height="19" fill="#9b59b6" opacity="1"/><text x="84.01" y="14.55">&#x1F426;</text><rect x="100.82" y="0" width="16.8" height="19" fill="#ce4435" opacity="1"/><text x="100.82" y="14.55">&#x1F5A4;</text><rect x="117.62" y="0" width="16.8" height="19" fill="#e9bd0e" opacity="1"/><text x="117.62" y="14.55">&#x1F633;</text><rect x="134.42" y="0" width="16.8" height="19" fill="#2ecc71" opacity="1"/><text x="134.42" y="14.55">&#x1F612;</text><rect x="151.22" y="0" width="16.8" height="19" fill="#1abc9c" opacity="1"/><text x="151.22" y="14.55">&#x1F62E;</text><rect x="168.03" y="0" width="16.8" height="19" fill="#318fce" opacity="1"/><text x="168.03" y="14.55">&#x1F610;</text><rect x="184.83" y="0" width="16.8" height="19" fill="#9b59b6" opacity="1"/><text x="184.83" y="14.55">&#x1F631;</text><rect x="201.63" y="0" width="16.8" height="19" fill="#ce4435" opacity="1"/><text x="201.63" y="14.55">&#x1F615;</text><rect x="218.44" y="0" width="16.8" height="19" fill="#e9bd0e" opacity="1"/><text x="218.44" y="14.55">&#x1F615;</text><rect x="235.24" y="0" width="16.8" height="19" fill="#2ecc71" opacity="1"/><text x="235.24" y="14.55">&#x1F611;</text><rect x="252.04" y="0" width="16.8" height="19" fill="#1abc9c" opacity="1"/><text x="252.04" y="14.55">&#x1F618;</text></g></svg>')
@@ -73,13 +72,13 @@ test('Chalk base styles', t => {
 })
 
 test('Powerline font compatibility', t => {
-	const ansiText = chalk` {bgGreen.white Testing background colors } butting adjacent lines. \n` +
-		chalk` {red ✘ }{bgBlue.black  ~/repos/minkjs/ansi-to }{bgYellow.blue  }{bgYellow.black  svg-image-plugins ● }{yellow } ava powerline-fonts.test.js \n` +
-		chalk`  {green 1 passed}`
+	const ansiText = chalk` {bgGreen.white Testing background colors } butting adjacent lines. \n`
+		+ chalk` {red ✘ }{bgBlue.black  ~/repos/minkjs/ansi-to }{bgYellow.blue  }{bgYellow.black  svg-image-plugins ● }{yellow } ava powerline-fonts.test.js \n`
+		+ chalk`  {green 1 passed}`
 	const colorFile = './fixtures/base16-flat-dark-f1lt3r-256.itermcolors'
 	const result = ansiToSVG(String(ansiText), {
 		colors: colorFile,
-		fontFamily: 'SauceCodePro Nerd Font'
+		fontFamily: 'SauceCodePro Nerd Font',
 	})
 	t.is(result, '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0, 0, 688.91, 60.45" font-family="SauceCodePro Nerd Font" font-size="14"><g fill="#e0e0e0"><rect x="0" y="0" width="688.91" height="60.45" fill="#2c3e50"/><rect x="8.4" y="0" width="218.44" height="19" fill="#2ecc71" opacity="1"/><text x="8.4" y="14.55" fill="#e0e0e0">Testing background colors </text><text x="235.24" y="14.55"> butting adjacent lines. </text><text x="8.4" y="33.55" fill="#ce4435">&#x2718; </text><rect x="25.2" y="19" width="210.03" height="19" fill="#318fce" opacity="1"/><text x="25.2" y="33.55" fill="#2c3e50">&#xE0B0; ~/repos/minkjs/ansi-to </text><rect x="235.24" y="19" width="16.8" height="19" fill="#e9bd0e" opacity="1"/><text x="235.24" y="33.55" fill="#318fce">&#xE0B0; </text><rect x="252.04" y="19" width="184.83" height="19" fill="#e9bd0e" opacity="1"/><text x="252.04" y="33.55" fill="#2c3e50">&#xE0A0; svg-image-plugins &#x25CF; </text><text x="436.87" y="33.55" fill="#e9bd0e">&#xE0B0;</text><text x="453.67" y="33.55"> ava powerline-fonts.test.js </text><text x="16.8" y="52.55" fill="#2ecc71">1 passed</text></g></svg>')
 
@@ -110,7 +109,7 @@ test('Padding', t => {
 		paddingTop: 14,
 		paddingLeft: 14,
 		paddingRight: 14,
-		paddingBottom: 14
+		paddingBottom: 14,
 	})
 
 	t.is(result, '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0, 0, 128.82, 50.45" font-family="SauceCodePro Nerd Font, Source Code Pro, Courier" font-size="14"><g fill="#e0e0e0"><rect x="0" y="0" width="128.82" height="50.45" fill="#2c3e50"/><text x="14" y="28.55" font-weight="bold" fill="#ce4435">padding</text><text x="81.21" y="28.55" font-style="italic" fill="#2ecc71">woo!</text></g></svg>')
@@ -131,7 +130,7 @@ test('Colored Strikethrough with Underline', t => {
 		paddingTop: 1,
 		paddingLeft: 1,
 		paddingBottom: -2.5,
-		paddingRight: 1
+		paddingRight: 1,
 	})
 
 	t.is(result, '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0, 0, 35.61, 20.95" font-family="SauceCodePro Nerd Font, Source Code Pro, Courier" font-size="14"><g fill="#e0e0e0"><rect x="0" y="0" width="35.61" height="20.95" fill="#2c3e50"/><rect x="1" y="1" width="33.61" height="19" fill="#1abc9c" opacity="1"/><path d="M1,17.5146875 L34.60546875,17.5146875 Z" stroke="#e9bd0e"/><path d="M1,11.3546875 L34.60546875,11.3546875 Z" stroke="#e9bd0e"/><text x="1" y="15.55" fill="#e9bd0e">woo!</text></g></svg>')

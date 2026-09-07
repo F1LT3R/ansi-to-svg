@@ -12,7 +12,7 @@ const round = x => {
 }
 
 const decorators = {
-	text: ({value, x, y, attrStr}) => {
+	text({value, x, y, attrStr}) {
 		x = round(x)
 		y = round(y)
 
@@ -24,7 +24,7 @@ const decorators = {
 		return `<text x="${x}" y="${y}"${space}${attrStr}>${value}</text>`
 	},
 
-	rect: ({x, y, width, height, color, opacity}) => {
+	rect({x, y, width, height, color, opacity}) {
 		x = round(x)
 		y = round(y)
 		height = round(height)
@@ -43,16 +43,19 @@ const decorators = {
 		return `<rect x="${x}" y="${y}" width="${width}" height="${height}" fill="${color}"${space}${attrStr}/>`
 	},
 
-	path: ({d, color}) => {
+	path({d, color}) {
 		return `<path d="${d}" stroke="${color}"/>`
 	},
 
-	container: ({foregroundColor, content, width, height, font}) => {
+	container({foregroundColor, content, width, height, font}) {
 		const attrs = []
 		if (font) {
-			attrs.push(`font-family="${font.family}"`)
-			attrs.push(`font-size="${font.size}"`)
+			attrs.push(
+				`font-family="${font.family}"`,
+				`font-size="${font.size}"`,
+			)
 		}
+
 		const attrStr = attrs.join(' ')
 
 		let space = ''
@@ -65,7 +68,7 @@ const decorators = {
 
 		const containerTemplate = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0, 0, ${width}, ${height}"${space}${attrStr}><g fill="${foregroundColor}">${content}</g></svg>`
 		return containerTemplate
-	}
+	},
 }
 
 // Some SVG Implementations drop whitespaces
@@ -88,10 +91,10 @@ const handler = (ansi, opts) => {
 		family: opts.fontFamily,
 		lineHeight: opts.lineHeight,
 		emHeightAscent: 10.5546875,
-		emHeightDescent: 3.4453125
+		emHeightDescent: 3.4453125,
 	}
 
-	const textArea = ansi.textArea
+	const {textArea} = ansi
 	const textAreaWidth = textArea.columns * font.width
 	const textAreaHeight = (textArea.rows * (font.lineHeight + 1)) + font.emHeightDescent
 
@@ -106,7 +109,7 @@ const handler = (ansi, opts) => {
 		y: 0,
 		width,
 		height,
-		color: opts.colors.backgroundColor
+		color: opts.colors.backgroundColor,
 	})
 
 	ansi.chunks.forEach(chunk => {
@@ -114,7 +117,7 @@ const handler = (ansi, opts) => {
 			type,
 			value,
 			position,
-			style
+			style,
 		} = chunk
 
 		if (type !== 'text') {
@@ -129,11 +132,11 @@ const handler = (ansi, opts) => {
 		const attrs = []
 
 		if (style.bold) {
-			attrs.push(`font-weight="bold"`)
+			attrs.push('font-weight="bold"')
 		}
 
 		if (style.italic) {
-			attrs.push(`font-style="italic"`)
+			attrs.push('font-style="italic"')
 		}
 
 		let opacity = 1
@@ -150,7 +153,7 @@ const handler = (ansi, opts) => {
 				y: ((y - font.lineHeight) + font.emHeightDescent),
 				width: w,
 				height: font.lineHeight + 1,
-				color: backgroundColor
+				color: backgroundColor,
 			}
 
 			if (opacity) {
@@ -191,14 +194,14 @@ const handler = (ansi, opts) => {
 		const attrStr = attrs.join(' ')
 
 		// Do not output elements containing whitespace with no style
-		if (value.replace(/ /g, '').length === 0 && attrStr.length === 0) {
+		if (value.replaceAll(' ', '').length === 0 && attrStr.length === 0) {
 			return
 		}
 
 		const entified = he.encode(value, {decimal: false})
 		content += decorators.text({
 			value: entified,
-			x, y, fontStyle, attrStr
+			x, y, fontStyle, attrStr,
 		})
 	})
 
@@ -208,7 +211,7 @@ const handler = (ansi, opts) => {
 		content,
 		width,
 		height,
-		font
+		font,
 	}
 	return decorators.container(baseStyles)
 }
@@ -229,8 +232,8 @@ const SVG = {
 		fontFamily: 'SauceCodePro Nerd Font, Source Code Pro, Courier',
 
 		// Assume we would like a Retina-ready image
-		scale: 1
-	}
+		scale: 1,
+	},
 }
 
 module.exports = ansiTo.plugin(SVG)
